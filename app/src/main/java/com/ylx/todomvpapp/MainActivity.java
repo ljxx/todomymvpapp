@@ -1,69 +1,61 @@
 package com.ylx.todomvpapp;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.ylx.todomvpapp.ui.activity.CallPhoneActivity;
+import com.ylx.todomvpapp.ui.activity.ToolbarActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView btn_call;
+    private TextView btn_call,btn_toolbar;
+
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /**
+         * 设置toolbar
+         */
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+
         btn_call = (TextView) findViewById(R.id.btn_call);
-        btn_call.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                initListener();
-            }
-        });
+        btn_toolbar = (TextView) findViewById(R.id.btn_toolbar);
 
         initListener();
     }
 
     private void initListener() {
-        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.CALL_PHONE},1);
-        } else {
-            call();
-        }
+        /**
+         * 进入打电话页
+         */
+        btn_call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jumpActivity(CallPhoneActivity.class);
+            }
+        });
+
+        /**
+         * 进入toolbar菜单设置
+         */
+        btn_toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jumpActivity(ToolbarActivity.class);
+            }
+        });
     }
 
-    private void call(){
-        try {
-            Intent intent = new Intent(Intent.ACTION_CALL);
-            intent.setData(Uri.parse("tel:18638583607"));
-            startActivity(intent);
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode){
-            case 1:
-                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    call();
-                } else {
-                    Toast.makeText(MainActivity.this,"你取消了打电话权限",Toast.LENGTH_SHORT).show();
-                }
-                break;
-            default:
-                break;
-
-        }
+    private void jumpActivity(Class<?> clazz){
+        Intent intent = new Intent(MainActivity.this,clazz);
+        startActivity(intent);
     }
 }

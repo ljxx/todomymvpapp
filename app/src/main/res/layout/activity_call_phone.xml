@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_call_phone"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ylx.todomvpapp.ui.activity.CallPhoneActivity">
+
+    <TextView
+        android:id="@+id/call_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:background="#bb0000ff"
+        android:textColor="#ffffff"
+        android:text="拨打电话(运行时权限)" />
+
+</LinearLayout>

@@ -2,11 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/activity_main"
+    android:id="@+id/activity_toolbar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.ylx.todomvpapp.MainActivity">
+    tools:context="com.ylx.todomvpapp.ui.activity.ToolbarActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -15,16 +14,5 @@
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
-    <TextView
-        android:id="@+id/btn_call"
-        style="@style/main_btn_textview_style"
-        android:text="@string/callphone_name" />
-
-    <TextView
-        android:id="@+id/btn_toolbar"
-        style="@style/main_btn_textview_style"
-        android:text="@string/toolbar_name" />
-
 
 </LinearLayout>

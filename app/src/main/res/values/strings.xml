@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">todomymvpapp</string>
+    <string name="toolbar_title_backup">toolbar_title_backup</string>
+    <string name="toolbar_title_delete">toolbar_title_delete</string>
+    <string name="toolbar_title_settings">toolbar_title_settins</string>
+
+    <string name="callphone_name">进入打电话页（运行时权限）</string>
+    <string name="toolbar_name">进入标题栏页（toolbar设置）</string>
 </resources>
