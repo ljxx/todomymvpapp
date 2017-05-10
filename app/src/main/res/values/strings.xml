@@ -6,4 +6,7 @@
 
     <string name="callphone_name">进入打电话页（运行时权限）</string>
     <string name="toolbar_name">进入标题栏页（toolbar设置）</string>
+    <string name="drawerlayout_name">进入滑动页（drawerlayout实现滑动效果）</string>
+
+    <string name="drawerlayout_content_text">滑动菜单页中的一员</string>
 </resources>

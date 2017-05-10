@@ -26,5 +26,10 @@
         style="@style/main_btn_textview_style"
         android:text="@string/toolbar_name" />
 
+    <TextView
+        android:id="@+id/btn_drawerlayout"
+        style="@style/main_btn_textview_style"
+        android:text="@string/toolbar_name" />
+
 
 </LinearLayout>

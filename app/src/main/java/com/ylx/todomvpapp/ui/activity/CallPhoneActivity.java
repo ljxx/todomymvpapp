@@ -16,8 +16,9 @@ import android.widget.Toast;
 
 import com.ylx.todomvpapp.R;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
-
+/**
+ * 打电话-运行时权限
+ */
 public class CallPhoneActivity extends AppCompatActivity {
 
     private TextView mCallPhone;

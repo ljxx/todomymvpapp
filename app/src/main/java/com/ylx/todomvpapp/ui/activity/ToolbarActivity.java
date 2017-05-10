@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 import com.ylx.todomvpapp.R;
 
+/**
+ * 设置toolbar
+ */
 public class ToolbarActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;

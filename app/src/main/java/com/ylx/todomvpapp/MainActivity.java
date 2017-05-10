@@ -8,11 +8,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.ylx.todomvpapp.ui.activity.CallPhoneActivity;
+import com.ylx.todomvpapp.ui.activity.DrawerLayoutActivity;
 import com.ylx.todomvpapp.ui.activity.ToolbarActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView btn_call,btn_toolbar;
+    private TextView btn_call,btn_toolbar,btn_drawerlayout;
 
     private Toolbar mToolbar;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn_call = (TextView) findViewById(R.id.btn_call);
         btn_toolbar = (TextView) findViewById(R.id.btn_toolbar);
+        btn_drawerlayout = (TextView) findViewById(R.id.btn_drawerlayout);
 
         initListener();
     }
@@ -50,6 +52,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 jumpActivity(ToolbarActivity.class);
+            }
+        });
+
+        /**
+         * 进入drawerlayout滑动页
+         */
+        btn_drawerlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jumpActivity(DrawerLayoutActivity.class);
             }
         });
     }
