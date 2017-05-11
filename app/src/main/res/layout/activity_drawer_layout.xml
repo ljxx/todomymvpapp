@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.ylx.todomvpapp.ui.activity.DrawerLayoutActivity">
 
-    <FrameLayout
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -35,7 +35,7 @@
             android:elevation="@dimen/px8"
             />
 
-    </FrameLayout>
+    </android.support.design.widget.CoordinatorLayout>
 
     <!--此为第一个控件，无论布局如何，但layout_gravity是必须有的；其值：left 表示滑动菜单在左侧，right 表示滑动菜单在右侧；start 表示根据系统语言进行判断-->
     <android.support.design.widget.NavigationView
