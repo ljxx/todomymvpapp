@@ -24,7 +24,10 @@
             android:name=".ui.activity.ToolbarActivity"
             android:label="我是toolbar设置页" />
         <activity android:name=".ui.activity.CallPhoneActivity" />
-        <activity android:name=".ui.activity.DrawerLayoutActivity" android:label="我是滑动页面"></activity>
+        <activity
+            android:name=".ui.activity.DrawerLayoutActivity"
+            android:label="我是滑动页面" />
+        <activity android:name=".ui.activity.CardViewActivity"></activity>
     </application>
 
 </manifest>

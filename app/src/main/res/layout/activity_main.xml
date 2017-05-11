@@ -31,5 +31,10 @@
         style="@style/main_btn_textview_style"
         android:text="@string/drawerlayout_name" />
 
+    <TextView
+        android:id="@+id/btn_cardview"
+        style="@style/main_btn_textview_style"
+        android:text="@string/cardview_name" />
+
 
 </LinearLayout>

@@ -7,6 +7,7 @@
     <string name="callphone_name">进入打电话页（运行时权限）</string>
     <string name="toolbar_name">进入标题栏页（toolbar设置）</string>
     <string name="drawerlayout_name">进入滑动页（drawerlayout实现滑动效果）</string>
+    <string name="cardview_name">进入卡片布局页（cardview实现卡片布局效果）</string>
 
     <string name="drawerlayout_content_text">滑动菜单页中的一员</string>
     <string name="myemail">QNjingling1108@163.com</string>
@@ -17,4 +18,6 @@
     <string name="nav_location">地图导航</string>
     <string name="nav_email">发邮件</string>
     <string name="nav_task">记事本</string>
+
+    <string name="foot_loading">正在加载中...</string>
 </resources>

@@ -8,12 +8,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.ylx.todomvpapp.ui.activity.CallPhoneActivity;
+import com.ylx.todomvpapp.ui.activity.CardViewActivity;
 import com.ylx.todomvpapp.ui.activity.DrawerLayoutActivity;
 import com.ylx.todomvpapp.ui.activity.ToolbarActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView btn_call,btn_toolbar,btn_drawerlayout;
+    private TextView btn_call,btn_toolbar,btn_drawerlayout,btn_cardview;
 
     private Toolbar mToolbar;
 
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         btn_call = (TextView) findViewById(R.id.btn_call);
         btn_toolbar = (TextView) findViewById(R.id.btn_toolbar);
         btn_drawerlayout = (TextView) findViewById(R.id.btn_drawerlayout);
+        btn_cardview = (TextView) findViewById(R.id.btn_cardview);
 
         initListener();
     }
@@ -62,6 +64,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 jumpActivity(DrawerLayoutActivity.class);
+            }
+        });
+
+        /**
+         * 进入卡片式布局页
+         */
+        btn_cardview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                jumpActivity(CardViewActivity.class);
             }
         });
     }
