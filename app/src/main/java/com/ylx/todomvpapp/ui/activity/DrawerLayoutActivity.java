@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -89,8 +90,14 @@ public class DrawerLayoutActivity extends AppCompatActivity {
          */
         mFloatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Toast.makeText(DrawerLayoutActivity.this,"你点击了悬浮窗按钮",Toast.LENGTH_SHORT).show();
+            public void onClick(View view) {
+//                Toast.makeText(DrawerLayoutActivity.this,"你点击了悬浮窗按钮",Toast.LENGTH_SHORT).show();
+                Snackbar.make(view,"你确定要删除此条信息吗",Snackbar.LENGTH_SHORT).setAction("确定删除", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(DrawerLayoutActivity.this,"你终于确定了",Toast.LENGTH_SHORT).show();
+                    }
+                }).show();
             }
         });
     }
