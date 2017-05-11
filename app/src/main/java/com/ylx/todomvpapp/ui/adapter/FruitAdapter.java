@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -32,48 +33,167 @@ import java.util.List;
  * <p/>
  * ========================================
  */
-public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> {
+public class FruitAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context mContext;
     private List<Fruit> mFruitList;
+
+    private static final int NORMALLAYOUT = 0;
+    private static final int FOOTERLAYOUT = 1;
+
+    public FooterViewHolder mFooterAdapter;
 
     public FruitAdapter(List<Fruit> mList){
         this.mFruitList = mList;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if(mContext == null){
             mContext = parent.getContext();
         }
-        View mView = LayoutInflater.from(mContext).inflate(R.layout.fruit_item,parent,false);
-        return new ViewHolder(mView);
+        if(viewType == NORMALLAYOUT){
+            View mView = LayoutInflater.from(mContext).inflate(R.layout.fruit_item,parent,false);
+            return new NormalViewHolder(mView);
+        } else {
+            View mFooterView = LayoutInflater.from(mContext).inflate(R.layout.loading_item_foot,parent,false);
+            mFooterAdapter = new FooterViewHolder(mFooterView);
+            return mFooterAdapter;
+        }
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Fruit fruit = mFruitList.get(position);
-        holder.fruitName.setText(fruit.getName());
-        Glide.with(mContext).load(fruit.getImageId()).into(holder.fruitImage);
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+
+        if(holder instanceof NormalViewHolder){
+            ((NormalViewHolder) holder).setData(position);
+            if(onItemClickListener != null){
+                /**
+                 * 点击事件
+                 */
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onItemClickListener.onItemClick(holder.itemView,position);
+                    }
+                });
+
+                /**
+                 * 长按事件
+                 */
+                holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        onItemClickListener.onItemLongClick(holder.itemView,position);
+                        return false;
+                    }
+                });
+            }
+            return;
+        } else {
+            return;
+        }
     }
 
     @Override
     public int getItemCount() {
-        return mFruitList.size();
+        return mFruitList.size() == 0 ? 0 : mFruitList.size() + 1;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder{
+    @Override
+    public int getItemViewType(int position) {
+        if(position == mFruitList.size()){
+            return FOOTERLAYOUT;
+        } else {
+            return NORMALLAYOUT;
+        }
+    }
+
+    /**
+     * 主体部分
+     */
+     class NormalViewHolder extends RecyclerView.ViewHolder{
 
         CardView cardView;
         ImageView fruitImage;
         TextView fruitName;
 
-        public ViewHolder(View itemView) {
+        public NormalViewHolder(View itemView) {
             super(itemView);
             cardView = (CardView) itemView;
             fruitImage = (ImageView) itemView.findViewById(R.id.fruit_image);
             fruitName = (TextView) itemView.findViewById(R.id.fruit_name);
-
         }
+
+        public void setData(int position){
+            Fruit fruit = mFruitList.get(position);
+            fruitName.setText(fruit.getName());
+            Glide.with(mContext).load(fruit.getImageId()).into(fruitImage);
+        }
+    }
+
+    /**
+     * footer部分
+     */
+     public class FooterViewHolder extends RecyclerView.ViewHolder{
+
+        private LinearLayout loading_viewstub,end_viewstub,newwork_error_viewstub;
+
+        public FooterViewHolder(View itemView) {
+            super(itemView);
+            loading_viewstub = (LinearLayout) itemView.findViewById(R.id.loading_viewstub);
+            end_viewstub = (LinearLayout) itemView.findViewById(R.id.end_viewstub);
+            newwork_error_viewstub = (LinearLayout) itemView.findViewById(R.id.newwork_error_viewstub);
+        }
+
+        /**
+         * 根据传的状态，控制该状态对应的
+         */
+        public void setData(int status){
+            setAllGone();
+            switch (status){
+                case 0:
+                    break;
+                case 1:
+                    loading_viewstub.setVisibility(View.VISIBLE);
+                    break;
+                case 2:
+                    end_viewstub.setVisibility(View.VISIBLE);
+                    break;
+                case 3:
+                    newwork_error_viewstub.setVisibility(View.VISIBLE);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void setAllGone(){
+            if(loading_viewstub != null){
+                loading_viewstub.setVisibility(View.GONE);
+            }
+
+            if(end_viewstub != null){
+                end_viewstub.setVisibility(View.GONE);
+            }
+
+            if(newwork_error_viewstub != null){
+                newwork_error_viewstub.setVisibility(View.GONE);
+            }
+        }
+    }
+
+    /**
+     * 条目监听事件
+     */
+    public interface OnItemClickListener{
+        void onItemClick(View view,int position);
+        void onItemLongClick(View view,int position);
+    }
+
+    private OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemClickListener = onItemClickListener;
     }
 }
