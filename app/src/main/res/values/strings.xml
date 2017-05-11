@@ -9,4 +9,12 @@
     <string name="drawerlayout_name">进入滑动页（drawerlayout实现滑动效果）</string>
 
     <string name="drawerlayout_content_text">滑动菜单页中的一员</string>
+    <string name="myemail">QNjingling1108@163.com</string>
+    <string name="myusername">蓝吉星讯</string>
+
+    <string name="nav_callphone">通讯录</string>
+    <string name="nav_friends">好友</string>
+    <string name="nav_location">地图导航</string>
+    <string name="nav_email">发邮件</string>
+    <string name="nav_task">记事本</string>
 </resources>

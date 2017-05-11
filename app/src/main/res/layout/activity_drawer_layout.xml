@@ -23,7 +23,15 @@
     </FrameLayout>
 
     <!--此为第一个控件，无论布局如何，但layout_gravity是必须有的；其值：left 表示滑动菜单在左侧，right 表示滑动菜单在右侧；start 表示根据系统语言进行判断-->
-    <FrameLayout
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/nav_header"/>
+
+    <!--<FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/main_textcolor_blue"
@@ -35,6 +43,6 @@
             style="@style/main_btn_textview_style"
             android:text="@string/drawerlayout_content_text"/>
 
-    </FrameLayout>
+    </FrameLayout>-->
 
 </android.support.v4.widget.DrawerLayout>
