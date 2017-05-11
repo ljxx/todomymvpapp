@@ -20,6 +20,21 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             />
 
+        <!--android:elevation="@dimen/px8" 为此按钮制定一个高度，高度越大投影越大，但投影效果越淡，反之投影效果越浓-->
+        <!--参考：http://blog.csdn.net/lmj623565791/article/details/46678867-->
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/px16"
+            app:rippleColor="#eeeeee"
+            android:backgroundTint="@color/colorAccent"
+            app:pressedTranslationZ="@dimen/px30"
+            android:src="@drawable/ic_done"
+            android:elevation="@dimen/px8"
+            />
+
     </FrameLayout>
 
     <!--此为第一个控件，无论布局如何，但layout_gravity是必须有的；其值：left 表示滑动菜单在左侧，right 表示滑动菜单在右侧；start 表示根据系统语言进行判断-->
