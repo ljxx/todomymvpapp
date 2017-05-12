@@ -7,11 +7,14 @@
     <dimen name="px5">5dp</dimen>
     <dimen name="px10">10dp</dimen>
     <dimen name="px8">8dp</dimen>
+    <dimen name="px15">15dp</dimen>
     <dimen name="px16">16dp</dimen>
     <dimen name="px30">30dp</dimen>
+    <dimen name="px35">35dp</dimen>
     <dimen name="px70">70dp</dimen>
     <dimen name="px100">100dp</dimen>
     <dimen name="px180">180dp</dimen>
+    <dimen name="px250">250dp</dimen>
 
     <!--字体大小-->
     <dimen name="px14sp">14sp</dimen>

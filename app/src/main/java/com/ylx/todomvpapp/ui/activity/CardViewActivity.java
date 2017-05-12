@@ -1,5 +1,6 @@
 package com.ylx.todomvpapp.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -124,6 +125,10 @@ public class CardViewActivity extends AppCompatActivity {
         mAdapter.setOnItemClickListener(new FruitAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
+                Intent intent = new Intent(CardViewActivity.this,CollapsingToolBarLayoutActivity.class);
+                intent.putExtra(CollapsingToolBarLayoutActivity.FRUIT_NAME,fruitList.get(position).getName());
+                intent.putExtra(CollapsingToolBarLayoutActivity.FRUIT_IMAGE_ID,fruitList.get(position).getImageId());
+                startActivity(intent);
                 Toast.makeText(CardViewActivity.this,"你点击了" + fruitList.get(position).getName(),Toast.LENGTH_SHORT).show();
             }
 

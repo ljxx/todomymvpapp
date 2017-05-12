@@ -27,7 +27,10 @@
         <activity
             android:name=".ui.activity.DrawerLayoutActivity"
             android:label="我是滑动页面" />
-        <activity android:name=".ui.activity.CardViewActivity" android:label="卡片式列表页"></activity>
+        <activity
+            android:name=".ui.activity.CardViewActivity"
+            android:label="卡片式列表页" />
+        <activity android:name=".ui.activity.CollapsingToolBarLayoutActivity" android:label="可折叠式布局"></activity>
     </application>
 
 </manifest>
