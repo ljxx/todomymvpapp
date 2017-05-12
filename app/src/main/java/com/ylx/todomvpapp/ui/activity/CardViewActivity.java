@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
@@ -25,6 +26,8 @@ public class CardViewActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private GridLayoutManager mGridLayoutManager;
+
+    private Toolbar mToolbar;
 
     //模拟数据源
     private List<Fruit> fruitList = new ArrayList<Fruit>();
@@ -49,6 +52,9 @@ public class CardViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_card_view);
 
 //        initFruit();
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.mSwipeRefreshLayout);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
