@@ -7,4 +7,6 @@
     <color name="main_bg_blue">#bb0000ff</color>
     <color name="main_textcolor_blue">#ffffff</color>
     <color name="textcolor_white">#FFF</color>
+    
+    <color name="transparent">#00000000</color>
 </resources>
